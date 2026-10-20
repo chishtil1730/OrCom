@@ -1,13 +1,14 @@
+
 function getApiBaseUrl(): string {
-  const envUrl = process.env.NEXT_PUBLIC_API_URL?.trim();
-  if (!envUrl) {
-    return "http://127.0.0.1:8000/api";
+  if (typeof window !== "undefined") {
+    return "/api";
   }
-  const cleanUrl = envUrl.replace(/\/+$/, "");
-  return cleanUrl.endsWith("/api") ? cleanUrl : `${cleanUrl}/api`;
+
+  return process.env.NEXT_PUBLIC_API_URL?.trim() || "/api";
 }
 
 export const API_BASE_URL = getApiBaseUrl();
+
 
 export class ApiError extends Error {
   status: number;
