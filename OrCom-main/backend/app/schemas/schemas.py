@@ -3,7 +3,7 @@ from typing import List, Optional, Any, Dict
 from pydantic import BaseModel, Field, ConfigDict
 
 
-#github event 2
+#github 
 
 # --- Projects ---
 class ProjectCreate(BaseModel):
